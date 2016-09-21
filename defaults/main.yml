@@ -1,0 +1,4 @@
+---
+# User variables for role
+git_packages: git
+git_packages_state: present

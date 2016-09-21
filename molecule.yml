@@ -1,0 +1,36 @@
+---
+driver:
+  name: docker
+
+docker:
+  containers:
+      - name: ansible-git-jessie
+        image: debian
+        image_version: jessie
+        ansible_groups:
+          - git-debian
+      - name: ansible-git-xenial
+        image: ubuntu
+        image_version: xenial
+        ansible_groups:
+          - git-ubuntu
+      - name: ansible-git-centos6
+        image: centos
+        image_version: 6
+        ansible_groups:
+          - git-centos
+      - name: ansible-git-centos7
+        image: centos
+        image_version: 7
+        ansible_groups:
+          - git-centos
+      - name: ansible-git-arch
+        image: pritunl/archlinux
+        image_version: latest
+        dockerfile: docker/arch.dockerfile
+        ansible_groups:
+          - git-arch
+        command: /bin/bash
+
+verifier:
+  name: testinfra
