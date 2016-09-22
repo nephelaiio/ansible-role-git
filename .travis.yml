@@ -12,6 +12,9 @@ addons:
     packages:
       - vagrant
 
+rvm:
+  - 2.2.0
+
 install:
   - pip install -r requirements.txt
 
