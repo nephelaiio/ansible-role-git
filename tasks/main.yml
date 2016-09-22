@@ -1,19 +1,7 @@
 ---
-# Include variable definitions
-- name: "include variable overrides"
-  include_vars: "{{ item }}"
-  with_first_found:
-    - "vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
-    - "vars/{{ ansible_distrubition }}.yml"
-    - "vars/{{ ansible_os_family }}.yml"
-  tags:
-    - git
-
 # Install packages
 - name: install git packages
   package: name="{{ git_packages }}" state="{{ git_packages_state }}"
   become: yes
   tags:
     - git
-
-# Set up configuration file
