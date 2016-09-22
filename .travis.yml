@@ -11,9 +11,13 @@ addons:
   apt:
     packages:
       - vagrant
-
+      - ruby
+      - ruby-bundler
 rvm:
   - 2.2.0
+
+before_install:
+  - bundle install
 
 install:
   - pip install -r requirements.txt
