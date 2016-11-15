@@ -1,9 +1,9 @@
 ---
 # Install packages
 - name: install git packages
-  package: >
-    name="{{ git_packages }}"
-    state="{{ git_packages_state }}"
+  package:
+    name: "{{ git_packages }}"
+    state: "{{ git_packages_state }}"
   become: yes
   tags:
     - git
