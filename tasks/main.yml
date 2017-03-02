@@ -8,3 +8,46 @@
   become: yes
   tags:
     - git
+
+# Set up prompt configuration file
+- name: set up git prompt
+  copy:
+    dest: "~/{{ git_prompt_path }}"
+    src: "{{ git_prompt_template }}"
+  become: yes
+  become_user: "{{ item }}"
+  with_items: "{{ git_users }}"
+  tags:
+    - git
+
+- name: configure git prompt
+  lineinfile:
+    dest: "~{{ item }}/{{ bash_configuration_file }}"
+    line: '[[ -f ~/{{ git_prompt_path }} ]] && source ~/{{ git_prompt_path }}'
+    create: yes
+  become: yes
+  become_user: "{{ item }}"
+  with_items: "{{ git_users }}"
+  tags:
+    - "git"
+
+- name: set up git completion
+  copy:
+    dest: "~/{{ git_completion_path }}"
+    src: "{{ git_completion_template }}"
+  become: yes
+  become_user: "{{ item }}"
+  with_items: "{{ git_users }}"
+  tags:
+    - git
+
+- name: configure git completion
+  lineinfile:
+    dest: "~{{ item }}/{{ bash_configuration_file }}"
+    line: '[[ -f ~/{{ git_completion_path }} ]] && source ~/{{ git_completion_path }}'
+    create: yes
+  become: yes
+  become_user: "{{ item }}"
+  with_items: "{{ git_users }}"
+  tags:
+    - "git"
