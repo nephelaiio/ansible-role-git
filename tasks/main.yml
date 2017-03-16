@@ -9,6 +9,34 @@
   tags:
     - git
 
+# Install lfs
+- name: Execute lfs auto install command
+  shell: |
+    curl -s {{ git_lfs_install_url }} | bash
+  become: yes
+  when: git_lfs_install_url is defined
+  changed_when: false
+  tags:
+    - git
+    - skip_ansible_lint
+
+- name: Install git-lfs package
+  package: |
+    name: {{ git_packages_lfs }}
+    state: {{ git_packages_state }}
+  become: yes
+  when: git_packages_lfs is defined
+  tags:
+    - git
+
+- name: Initialize git-lfs
+  shell: git lfs install
+  when: git_packages_lfs is defined
+  changed_when: false
+  tags:
+    - git
+    - skip_ansible_lint
+
 # Set up prompt configuration file
 - name: set up git prompt
   copy:
@@ -29,7 +57,7 @@
   become_user: "{{ item }}"
   with_items: "{{ git_users }}"
   tags:
-    - "git"
+    - git
 
 - name: set up git completion
   copy:
@@ -50,4 +78,4 @@
   become_user: "{{ item }}"
   with_items: "{{ git_users }}"
   tags:
-    - "git"
+    - git
