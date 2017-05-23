@@ -23,6 +23,7 @@ docker:
     - name: ansible-git-arch
       image: archlinux
       image_version: latest
+      image: archlinux
       dockerfile: docker/arch.dockerfile
       command: /bin/bash
       ansible_groups:
