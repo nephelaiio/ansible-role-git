@@ -2,8 +2,6 @@
 ---
 git_packages: git
 git_packages_state: present
-git_users:
-  - "{{ ansible_user }}"
 git_prompt_path: .gitprompt
 git_prompt_template: gitprompt
 git_completion_path: .gitcompletion
