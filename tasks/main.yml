@@ -1,6 +1,4 @@
-# vim: ts=2 sw=2 et :
 ---
-# Install packages
 - name: install git packages
   package:
     name: "{{ git_packages }}"
@@ -9,7 +7,6 @@
   tags:
     - git
 
-# Install lfs
 - name: Execute lfs auto install command
   shell: |
     curl -s {{ git_lfs_install_url }} | bash
@@ -35,7 +32,6 @@
     - git
     - skip_ansible_lint
 
-# Set up prompt configuration file
 - name: set up git prompt
   copy:
     dest: "~/{{ git_prompt_path }}"
