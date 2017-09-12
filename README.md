@@ -23,10 +23,10 @@ Please make sure your environment has [docker](https://www.docker.com) installed
 Role is tested against the following distributions (docker images):
   * Ubuntu Xenial
   * CentOS 7
-  * Debian Jessie
+  * Debian Stretch
   * Arch Linux
 
-You can test the role from sources using the command line using molecule directly ` molecule test `
+You can test the role directly from sources using command ` molecule test `
 
 ## License
 
