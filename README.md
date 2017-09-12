@@ -5,19 +5,18 @@
 
 An [ansible role](https://galaxy.ansible.com/nephelaiio/git) to install and configure git
 
-# Role Variables
+## Role Variables
 
 Please refer to the [defaults file](/defaults/main.yml) for an up to date list of input parameters.
 
-# Example Playbook
+## Example Playbook
 
     - hosts: servers
       roles:
          - role: git
            git_packages_state: latest
 
-Testing
--------
+## Testing
 
 Please make sure your environment has [docker](https://www.docker.com) installed in order to run role validation tests. Additional dependencies are listed in the [requirements file](/requirements.txt)
 
@@ -29,6 +28,6 @@ Role is tested against the following distributions (docker images):
 
 You can test the role from sources using the command line using molecule directly ` molecule test `
 
-# License
+## License
 
 This project is licensed under the terms of the [MIT License](/LICENSE)
