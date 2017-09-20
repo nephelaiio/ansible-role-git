@@ -1,0 +1,3 @@
+---
+- name: initialize git-lfs
+  shell: git lfs install

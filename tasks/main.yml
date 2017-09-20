@@ -15,8 +15,7 @@
   become: yes
 
 - name: Execute lfs auto install command
-  shell: |
-    curl -s {{ git_lfs_install_url }} | bash
+  shell: "curl -s {{ git_lfs_install_url }} | bash"
   when: git_lfs_install_url is defined
   args:
     warn: false
@@ -32,6 +31,7 @@
   when:
     - git_packages_lfs is defined
     - ansible_os_family == 'RedHat'
+  notify: initialize git-lfs
 
 - name: Install git-lfs apt package
   apt:
@@ -41,18 +41,13 @@
   when:
     - git_packages_lfs is defined
     - ansible_os_family == 'Debian'
-
-- name: Initialize git-lfs
-  shell: git lfs install
-  when: git_packages_lfs is defined
-  changed_when: false
-  tags:
-    - skip_ansible_lint
+  notify: initialize git-lfs
 
 - name: set up git prompt
   copy:
     dest: "~/{{ git_prompt_path }}"
     src: "{{ git_prompt_template }}"
+  when: git_configure
   no_log: yes
 
 - name: configure git prompt
@@ -60,15 +55,18 @@
     dest: "~/{{ bash_configuration_file }}"
     line: '[[ -f ~/{{ git_prompt_path }} ]] && source ~/{{ git_prompt_path }}'
     create: yes
+  when: git_configure
 
 - name: set up git completion
   copy:
     dest: "~/{{ git_completion_path }}"
     src: "{{ git_completion_template }}"
   no_log: yes
+  when: git_configure
 
 - name: configure git completion
   lineinfile:
     dest: "~/{{ bash_configuration_file }}"
     line: '[[ -f ~/{{ git_completion_path }} ]] && source ~/{{ git_completion_path }}'
     create: yes
+  when: git_configure
