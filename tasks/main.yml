@@ -23,7 +23,7 @@
     - skip_ansible_lint
 
 - name: Install git-lfs package
-  package: |
+  package:
     name: {{ git_packages_lfs }}
     state: {{ git_packages_state }}
   when: git_packages_lfs is defined
