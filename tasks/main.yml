@@ -24,8 +24,8 @@
 
 - name: Install git-lfs package
   package:
-    name: {{ git_packages_lfs }}
-    state: {{ git_packages_state }}
+    name: "{{ git_packages_lfs }}"
+    state: "{{ git_packages_state }}"
   when: git_packages_lfs is defined
 
 - name: Initialize git-lfs
