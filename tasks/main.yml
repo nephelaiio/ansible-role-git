@@ -14,7 +14,7 @@
     state: "{{ git_packages_state }}"
   become: yes
 
-- name: Execute lfs auto install command
+- name: execute lfs auto install command
   shell: "curl -s {{ git_lfs_install_url }} | bash"
   when: git_lfs_install_url is defined
   args:
@@ -23,7 +23,7 @@
   tags:
     - skip_ansible_lint
 
-- name: Install git-lfs yum package
+- name: install git-lfs yum package
   yum:
     name: "{{ git_packages_lfs }}"
     state: "{{ git_packages_state }}"
@@ -33,7 +33,7 @@
     - ansible_os_family == 'RedHat'
   notify: initialize git-lfs
 
-- name: Install git-lfs apt package
+- name: install git-lfs apt package
   apt:
     name: "{{ git_packages_lfs }}"
     state: "{{ git_packages_state }}"
