@@ -1,5 +1,7 @@
 ---
-git_packages: git
+git_packages_default: git
+
+git_lfs: false
 
 git_configure: false
 
