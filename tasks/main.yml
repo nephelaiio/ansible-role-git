@@ -29,7 +29,7 @@
     state: "{{ git_packages_state }}"
     update_cache: yes
   when:
-    - git_packages_lfs
+    - git_lfs
     - ansible_os_family == 'RedHat'
   notify: initialize git-lfs
 
@@ -39,7 +39,7 @@
     state: "{{ git_packages_state }}"
     update_cache: yes
   when:
-    - git_packages_lfs
+    - git_lfs
     - ansible_os_family == 'Debian'
   notify: initialize git-lfs
 
