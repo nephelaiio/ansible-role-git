@@ -10,7 +10,7 @@
 
 - name: install packages
   package:
-    name: "{{ git_packages }}"
+    name: "{{ git_packages | default(git_packages_default) }}"
     state: "{{ git_packages_state }}"
   become: yes
 
