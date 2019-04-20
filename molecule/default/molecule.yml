@@ -8,12 +8,14 @@ lint:
 platforms:
   - name: centos
     image: centos:7
-  - name: ubuntu
-    image: ubuntu:xenial
-  - name: debian
+  - name: stretch
     image: debian:stretch
+  - name: bionic
+    image: ubuntu:bionic
+  - name: xenial
+    image: ubuntu:xenial
   - name: arch
-    image: base/archlinux:latest
+    image: archlinux/base:latest
 provisioner:
   name: ansible
   lint:
