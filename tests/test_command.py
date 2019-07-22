@@ -5,5 +5,5 @@ testinfra_hosts = \
         AnsibleRunner('.molecule/ansible_inventory').get_hosts('test')
 
 
-def test_command(Command):
-    assert Command('git --version').rc == 0
+def test_command(host):
+    assert host.command('git --version').rc == 0
