@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: git
   author: Ted Cook
   description: An Ansible role to install and configure git
   license: MIT
@@ -8,18 +9,17 @@ galaxy_info:
     - name: EL
       versions:
         - 7
-    - name: Archlinux
-      versions:
-        - all
     - name: Ubuntu
       versions:
+        - focal
         - bionic
         - xenial
     - name: Debian
       versions:
-        - stretch
+        - buster
 
   galaxy_tags:
     - git
 
-dependencies: []
+dependencies:
+  - role: nephelaiio.plugins

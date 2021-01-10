@@ -1,7 +1,7 @@
 # nephelaiio.git
 
-[![Build Status](https://travis-ci.org/nephelaiio/ansible-role-git.svg?branch=master)](https://travis-ci.org/nephelaiio/ansible-role-git)
-[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-systemd--service-blue.svg)](https://galaxy.ansible.com/nephelaiio/git/)
+[![Build Status](https://github.com/nephelaiio/ansible-role-git/workflows/CI/badge.svg)](https://github.com/nephelaiio/ansible-role-git/actions)
+[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-nephelaiio.git-blue.svg)](https://galaxy.ansible.com/nephelaiio/git/)
 
 An [ansible role](https://galaxy.ansible.com/nephelaiio/git) to install and configure git
 
@@ -22,11 +22,11 @@ Please make sure your environment has [docker](https://www.docker.com) installed
 
 This role is tested against the following distributions (docker images):
 
+  * Ubuntu Focal
   * Ubuntu Bionic
   * Ubuntu Xenial
   * CentOS 7
-  * Debian Stretch
-  * Arch Linux
+  * Debian Buster
 
 You can test the role directly from sources using command ` molecule test `
 
