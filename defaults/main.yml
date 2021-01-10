@@ -1,5 +1,4 @@
 ---
-# git_packages: git
 git_packages: git
 
 git_packages_lfs: git-lfs
