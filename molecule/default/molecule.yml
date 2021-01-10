@@ -16,6 +16,11 @@ provisioner:
   log: true
   playbooks:
     converge: ${MOLECULE_PLAYBOOK:-converge.yml}
+  inventory:
+    group_vars:
+      all:
+        git_lfs: 'yes'
+        git_configure: 'yes'
 scenario:
   name: default
 verifier:

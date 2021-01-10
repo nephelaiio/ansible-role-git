@@ -46,4 +46,4 @@
         line: '[[ -f ~/{{ git_completion_path }} ]] && source ~/{{ git_completion_path }}'
         create: yes
 
-  when: git_configure
+  when: git_configure | bool
