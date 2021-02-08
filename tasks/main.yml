@@ -9,10 +9,10 @@
 
     - name: add epel repo
       include_role:
-        name: geerlingguy.repo_epel
+        name: geerlingguy.repo-epel
       when: (ansible_os_family | lower) == 'redhat'
 
-    - name: install git-lfs yum package
+    - name: install git-lfs package
       package:
         name: "{{ git_packages_lfs }}"
         state: "{{ git_packages_state }}"

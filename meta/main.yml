@@ -23,4 +23,5 @@ galaxy_info:
 
 dependencies:
   - role: nephelaiio.plugins
-  - role: geerlingguy.epel_release
+  - role: geerlingguy.repo-epel
+    when: (ansible_os_family | lower) == 'redhat'
